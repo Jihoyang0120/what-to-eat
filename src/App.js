@@ -15,8 +15,8 @@ const Container = styled.div`
   flex-direction: column;
 `;
 const Placeholder = styled.img`
-  width: 50%;
-  height: 50%;
+  width: 35%;
+  height: 35%;
   margin-top: 30px;
   border-radius: 20px;
   border: 1rem solid;
@@ -86,10 +86,15 @@ function App() {
     const timeout = setTimeout(() => fetchRecipe(event.target.value), 500);
     setTimeoutId(timeout);
   };
+  const setEmptyList = () => {
+    setRecipeList("");
+  };
   return (
     <Container>
       <Header.Header>
-        <Header.AppNameComponent>🥪Recipe Finder</Header.AppNameComponent>
+        <Header.AppNameComponent onClick={setEmptyList}>
+          🥪Recipe Finder
+        </Header.AppNameComponent>
         <Header.SearchComponent>
           🍳
           <Header.SearchInput
