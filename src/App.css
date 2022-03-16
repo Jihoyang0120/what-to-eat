@@ -1,0 +1,30 @@
+@font-face {
+    font-family: "B612";
+    src: url("./fonts/B612-Regular.ttf");
+  }
+  
+  @font-face {
+    font-family: "B612-Bold";
+    src: url("./fonts/B612-Bold.ttf");
+  }
+  
+  @font-face {
+    font-family: "B612-Italic";
+    src: url("./fonts/B612-Italic.ttf");
+  }
+  
+  @font-face {
+    font-family: "B612-BoldItalic";
+    src: url("./fonts/B612-BoldItalic.ttf");
+  }
+  
+table {
+    width : 100%;
+}
+
+td,thead, th {
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    font-family: "B612", "gothic";
+}

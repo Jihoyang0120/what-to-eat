@@ -9,6 +9,7 @@ const Header = styled.div`
   justify-content: space-between;
   padding: 20px;
   font-size: 25px;
+  font-family: "B612", "gothic";
   font-weight: bold;
   box-shadow: 0 3px 6px 0 #555;
 `;
@@ -37,6 +38,7 @@ const SearchInput = styled.input`
   margin-left: 15px;
   font-size: 20px;
   font-weight: bold;
+  font-family: "B612", "gothic";
 `;
 
 export default {

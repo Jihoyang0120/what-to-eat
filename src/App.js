@@ -1,11 +1,11 @@
+import "./App.css";
 import React, { useState } from "react";
 import Axios from "axios";
 import styled from "styled-components";
-import { Dialog, DialogContent } from "@material-ui/core";
-import { DialogTitle } from "@material-ui/core";
-import { DialogActions } from "@material-ui/core";
 import Header from "./components/headerComponents";
 import Recipe from "./components/recipeComponent";
+import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const APP_ID = "8505b103";
 const APP_KEY = "c3165cce95e297baeeecd239cb01a70a";
@@ -19,46 +19,47 @@ const Placeholder = styled.img`
   height: 35%;
   margin-top: 30px;
   border-radius: 20px;
-  border: 1rem solid;
 `;
 
 const RecipeComponent = (props) => {
-  const [show, setShow] = useState(false);
+  const [modal, setModal] = useState(false);
   const { recipeObj } = props;
   return (
     <>
-      <Dialog open={show}>
-        <DialogTitle>Ingredients</DialogTitle>
-        <table>
-          <thead>
-            <th>Ingredients</th>
-            <th>weight</th>
-          </thead>
-          <tbody>
-            {recipeObj.ingredients.map((ingredientsObj) => (
-              <tr>
-                <td>{ingredientsObj.text}</td>
-                <td>{Math.floor(ingredientsObj.weight)}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <DialogContent>
-          <DialogActions>
-            <Recipe.IngredientsText onClick={() => window.open(recipeObj.url)}>
-              See More
-            </Recipe.IngredientsText>
-            <Recipe.SeeMoreText onClick={() => setShow(false)}>
-              Close
-            </Recipe.SeeMoreText>
-          </DialogActions>
-        </DialogContent>
-      </Dialog>
+      <Modal isOpen={modal} size="lg" centered="true">
+        <ModalHeader>Recipe</ModalHeader>
+        <ModalBody>
+          <table>
+            <thead>
+              <th>Ingredients</th>
+              <th>Quantity</th>
+              <th>Weight(g)</th>
+            </thead>
+            <tbody>
+              {recipeObj.ingredients.map((ingredientsObj) => (
+                <tr>
+                  <td>{ingredientsObj.text}</td>
+                  <td>{ingredientsObj.quantity}</td>
+                  <td>{Math.floor(ingredientsObj.weight)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={() => window.open(recipeObj.url)}>
+            See More
+          </Button>
+          <Button color="success" onClick={() => setModal(false)}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
 
       <Recipe.RecipeContainer>
         <Recipe.CoverImage src={recipeObj.image} />
         <Recipe.RecipeName>{recipeObj.label}</Recipe.RecipeName>
-        <Recipe.IngredientsText onClick={() => setShow(true)}>
+        <Recipe.IngredientsText onClick={() => setModal(true)}>
           Ingredients
         </Recipe.IngredientsText>
         <Recipe.SeeMoreText onClick={() => window.open(recipeObj.url)}>

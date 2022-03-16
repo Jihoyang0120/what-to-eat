@@ -4,7 +4,7 @@ const RecipeListContainer = styled.div`
   display: flex;
   flex-direction: row;
   padding: 30px;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: space-evenly;
 `;
@@ -13,7 +13,7 @@ const RecipeContainer = styled.div`
   display: flex;
   flex-direction: column;
   padding: 30px;
-  width: 300px;
+  width: 350px;
   box-shadow: 0 3px 10px 0 #aaa;
 `;
 
@@ -23,6 +23,7 @@ const CoverImage = styled.img`
 `;
 
 const RecipeName = styled.span`
+  font-family: "B612", "gothic";
   font-size: 18px;
   font-weight: bold;
   color: black;
@@ -32,6 +33,7 @@ const RecipeName = styled.span`
 const IngredientsText = styled.span`
   font-size: 18px;
   border: solid 1px green;
+  font-family: "B612", "gothic";
   font-weight: bold;
   color: black;
   margin-bottom: 12px;
