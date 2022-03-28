@@ -19,6 +19,9 @@ const Placeholder = styled.img`
   height: 35%;
   margin-top: 30px;
   border-radius: 20px;
+  @media screen and (max-width: 700px) {
+    width: 95%;
+  }
 `;
 
 const RecipeComponent = (props) => {

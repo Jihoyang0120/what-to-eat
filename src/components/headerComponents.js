@@ -12,6 +12,10 @@ const Header = styled.div`
   font-family: "B612", "gothic";
   font-weight: bold;
   box-shadow: 0 3px 6px 0 #555;
+  @media screen and (max-width: 700px) {
+    display: flex;
+    flex-direction: column;
+  } ;
 `;
 
 const AppNameComponent = styled.div`
@@ -20,6 +24,12 @@ const AppNameComponent = styled.div`
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>👆</text></svg>")
       16 0,
     auto;
+
+  @media screen and (max-width: 700px) {
+    width: 95%;
+    justify-content: center;
+    margin-bottom: 20px;
+  } ;
 `;
 
 const SearchComponent = styled.div`
@@ -29,6 +39,9 @@ const SearchComponent = styled.div`
   padding: 10px;
   border-radius: 9px;
   width: 30%;
+  @media screen and (max-width: 700px) {
+    width: 95%;
+  } ;
 `;
 
 const SearchInput = styled.input`

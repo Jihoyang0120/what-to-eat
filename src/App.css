@@ -8,16 +8,6 @@
     src: url("./fonts/B612-Bold.ttf");
   }
   
-  @font-face {
-    font-family: "B612-Italic";
-    src: url("./fonts/B612-Italic.ttf");
-  }
-  
-  @font-face {
-    font-family: "B612-BoldItalic";
-    src: url("./fonts/B612-BoldItalic.ttf");
-  }
-  
 table {
     width : 100%;
 }
