@@ -1,13 +1,7 @@
+import React, { useState } from "react";
 import styled from "styled-components";
-
-const RecipeListContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 30px;
-  gap: 25px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-`;
+import { Modal, Button, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const RecipeContainer = styled.div`
   display: flex;
@@ -51,11 +45,53 @@ const SeeMoreText = styled(IngredientsText)`
   border: solid 1px #eb3300;
 `;
 
-export default {
-  RecipeListContainer,
-  CoverImage,
-  RecipeContainer,
-  RecipeName,
-  IngredientsText,
-  SeeMoreText,
+const RecipeComponent = (props) => {
+  const [modal, setModal] = useState(false);
+  const { recipeObj } = props;
+  return (
+    <>
+      <Modal isOpen={modal} size="lg" centered="true">
+        <ModalHeader>Recipe</ModalHeader>
+        <ModalBody>
+          <table>
+            <thead>
+              <th>Ingredients</th>
+              <th>Quantity</th>
+              <th>Weight(g)</th>
+            </thead>
+            <tbody>
+              {recipeObj.ingredients.map((ingredientsObj) => (
+                <tr>
+                  <td>{ingredientsObj.text}</td>
+                  <td>{ingredientsObj.quantity}</td>
+                  <td>{Math.floor(ingredientsObj.weight)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </ModalBody>
+        <ModalFooter>
+          <Button color="danger" onClick={() => window.open(recipeObj.url)}>
+            See More
+          </Button>
+          <Button color="success" onClick={() => setModal(false)}>
+            Close
+          </Button>
+        </ModalFooter>
+      </Modal>
+
+      <RecipeContainer>
+        <CoverImage src={recipeObj.image} />
+        <RecipeName>{recipeObj.label}</RecipeName>
+        <IngredientsText onClick={() => setModal(true)}>
+          Ingredients
+        </IngredientsText>
+        <SeeMoreText onClick={() => window.open(recipeObj.url)}>
+          See Complete Recipe
+        </SeeMoreText>
+      </RecipeContainer>
+    </>
+  );
 };
+
+export default RecipeComponent;

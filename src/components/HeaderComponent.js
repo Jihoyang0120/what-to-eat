@@ -1,3 +1,4 @@
+import React from "react";
 import styled from "styled-components";
 
 const Header = styled.div`
@@ -54,9 +55,18 @@ const SearchInput = styled.input`
   font-family: "B612", "gothic";
 `;
 
-export default {
-  Header,
-  AppNameComponent,
-  SearchComponent,
-  SearchInput,
+const HeaderComponents = ({ onTextChange, setEmptyList }) => {
+  return (
+    <Header>
+      <AppNameComponent onClick={setEmptyList}>
+        🥪Recipe Finder
+      </AppNameComponent>
+      <SearchComponent>
+        🍳
+        <SearchInput placeholder="Search Recipe" onChange={onTextChange} />
+      </SearchComponent>
+    </Header>
+  );
 };
+
+export default HeaderComponents;
