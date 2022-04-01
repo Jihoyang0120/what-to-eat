@@ -1,1 +1,1 @@
-https://jihoyang0120.github.io/recipe-finder/
+https://jihoyang0120.github.io/what-to-eat/
