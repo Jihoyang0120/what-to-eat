@@ -1,8 +1,8 @@
 {
-  "name": "recipe-finder",
+  "name": "what-to-eat",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jihoyang0120.github.io/recipe-finder/",
+  "homepage": "https://jihoyang0120.github.io/what-to-eat/",
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "@testing-library/jest-dom": "^5.16.2",

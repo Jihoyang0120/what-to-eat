@@ -58,9 +58,7 @@ const SearchInput = styled.input`
 const HeaderComponents = ({ onTextChange, setEmptyList }) => {
   return (
     <Header>
-      <AppNameComponent onClick={setEmptyList}>
-        🥪Recipe Finder
-      </AppNameComponent>
+      <AppNameComponent onClick={setEmptyList}>🥪What to Eat</AppNameComponent>
       <SearchComponent>
         🍳
         <SearchInput placeholder="Search Recipe" onChange={onTextChange} />
